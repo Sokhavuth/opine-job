@@ -15,10 +15,11 @@ import usersRouter from "./routes/users.ts";
 
 const app = opine();
 
-import { mydb, myredis } from "./setting.js";
+import { setting, mydb, myredis } from "./setting.js";
 app.use(async (req, res, next) => {
     req.mydb = await mydb;
     req.myredis = await myredis;
+    req.mysetting = await setting;
     next();
 });
 
