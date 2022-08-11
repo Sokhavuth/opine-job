@@ -9,7 +9,7 @@ function setting(){
         homePostAmount: 12,
     }
 
-    return configure
+    return configure;
 }
 
 
@@ -23,7 +23,7 @@ await client.connect(Deno.env.get('DATABASE_URI'));
 const mydb = client.database(Deno.env.get('DB_NAME'));
  
  
-import { connect } from "./deps.ts"
+import { connect } from "./deps.ts";
 const myredis = await connect({
     hostname: Deno.env.get('REDIS_URI'),
     port: parseInt(Deno.env.get('REDIS_PORT')),
@@ -31,4 +31,14 @@ const myredis = await connect({
 });
 
 
-export { setting, mydb, myredis }
+import { OpineSession, RedisStore } from "./deps.ts";
+class _RediStore extends RedisStore{
+    async init(){
+        this.db = await myredis;
+    }
+};
+const session_store = new _RediStore({});
+await session_store.init();
+
+
+export { setting, mydb, session_store, OpineSession };

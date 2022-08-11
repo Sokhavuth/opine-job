@@ -1,13 +1,13 @@
 // app.ts
 
 import {
-  dirname,
-  fromFileUrl,
-  join,
-  json,
-  opine,
-  serveStatic,
-  urlencoded,
+    dirname,
+    fromFileUrl,
+    join,
+    json,
+    opine,
+    serveStatic,
+    urlencoded,
 } from "./deps.ts";
 
 import indexRouter from "./routes/index.ts";
@@ -15,11 +15,19 @@ import usersRouter from "./routes/users.ts";
 
 const app = opine();
 
-import { setting, mydb, myredis } from "./setting.js";
+import { 
+    setting, 
+    mydb, 
+    session_store, 
+    OpineSession, 
+} from "./setting.js";
+
+const session = new OpineSession(app, {}, session_store);
+
 app.use(async (req, res, next) => {
     req.mydb = await mydb;
-    req.myredis = await myredis;
     req.mysetting = await setting;
+    req.mysession = session;
     next();
 });
 
