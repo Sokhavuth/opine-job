@@ -1,10 +1,9 @@
 import { Router } from "../deps.ts";
-
 const router = Router();
 
-// GET users listing.
-router.get("/", (_req, res, _next) => {
-  res.send("Users are coming shortly!");
-});
+
+import login from "./users/login.js";
+router.use("/", login);
+
 
 export default router;

@@ -1,5 +1,33 @@
-body {
-  padding: 10px 25px;
-  font-size: 14px;
-  font-family: "Helvetica Nueue", "Lucida Grande", Arial, sans-serif;
+/* public/styles/base.css */
+
+:root{
+  --background-light: lightgrey;
+  --background: lavender;
+  --background-dark: #272727;
+  --body-font: 14px/1.5 Vidaloka, OdorMeanChey;
+  --link: lavender;
+  --color: black;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color: var(--link);
+}
+a:hover{
+  opacity: .7;
+}
+.region{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+body{
+  color: var(--color);
+  font: var(--body-font);
+  background: var(--background-light);
 }
