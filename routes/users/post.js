@@ -5,8 +5,8 @@ const router = new Router();
 
 import post from "../../controllers/users/post.js"
 
-router.get("/", (req, res) => {
-    if(req.mysession.get("user")){
+router.get("/", async (req, res) => {
+    if(await req.mysession.get("user")){
         post.getPage(req, res);
     }else{ 
         res.redirect("/users");

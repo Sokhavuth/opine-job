@@ -7,6 +7,7 @@ function setting(){
         message: "",
         dasPostAmount: 10,
         homePostAmount: 12,
+        count: 0,
     }
 
     return configure;
