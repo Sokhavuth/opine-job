@@ -2,7 +2,7 @@
 
 .Index header{
     background: var(--background-dark);
-    border-bottom: 7px solid var(--background-light);
+    border-bottom: 7px solid white;
     margin-bottom: 20px;
 }
 
