@@ -21,27 +21,27 @@ function IndexJsx(props){
                         <input type="text" name="admin_q" required placeholder="Search" />
                         <input type="submit" value="Search" />
                     </form>
-                    <div class="logout"><span>{props.data.username}</span> | <a href="/">Home</a> | <a href="/logout">Logout</a></div>
+                    <div class="logout"><span>{props.data.username}</span> | <a href="/">Home</a> | <a href="/users/logout">Logout</a></div>
                 </div>
             </header>
 
             <div class="main region">
                 <div class="sidebar">
                     <div class="inner">
-                        <a href="/admin/post"><img src="/images/post.png" /></a>
-                        <a href="/admin/post">Post</a>
+                        <a href="/users/post"><img src="/images/post.png" /></a>
+                        <a href="/users/post">Post</a>
 
-                        <a href="/admin/category"><img src="/images/category.png" /></a>
-                        <a href="/admin/category">Category</a>
+                        <a href="/users/category"><img src="/images/category.png" /></a>
+                        <a href="/users/category">Category</a>
 
-                        <a href="/admin/upload"><img src="/images/upload.png" /></a>
-                        <a href="/admin/upload">Upload</a>
+                        <a href="/users/upload"><img src="/images/upload.png" /></a>
+                        <a href="/users/upload">Upload</a>
 
-                        <a href="/admin/user"><img src="/images/users.png" /></a>
-                        <a href="/admin/user">User</a>
+                        <a href="/users/user"><img src="/images/users.png" /></a>
+                        <a href="/users/user">User</a>
 
-                        <a href="/admin/setting"><img src="/images/setting.png" /></a>
-                        <a href="/admin/setting">Setting</a>
+                        <a href="/users/setting"><img src="/images/setting.png" /></a>
+                        <a href="/users/setting">Setting</a>
                     </div>
                 </div>
                 <div class="content">
