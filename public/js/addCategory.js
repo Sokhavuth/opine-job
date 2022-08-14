@@ -1,4 +1,4 @@
-// static/scripts/addCategory.js 
+// public/js/addCategory.js 
 
 function getCategory(){
     const category = $('#category option:selected').text()
