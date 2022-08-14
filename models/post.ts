@@ -7,9 +7,12 @@ interface PostSchema {
     title: string;
     content: string;
     categories: string[];
-    thumb: string;
-    date: string;
+    location: string;
+    payable: string;
+    postdate: Date;
+    closedate: string;
     userid: string;
+    thumb: string;
 }
 
 class Post{
@@ -34,13 +37,21 @@ class Post{
             title: req.body.title,
             content: req.body.content,
             categories: categories,
-            thumb: req.body.thumb,
-            date: req.body.datetime,
+            location: req.body.location,
+            payable: req.body.payable,
+            postdate: new Date(),
+            closedate: req.body.datetime,
             userid: (await req.mysession.get("user")).id,
+            thumb: req.body.thumb,
         }
  
         const posts = req.mydb.collection<PostSchema>("posts")
         await posts.insertOne(new_post)
+    }
+
+    async getPosts(req, amount, query={}){
+        const posts = req.mydb.collection<PostSchema>("posts");
+        return await posts.find(query).sort({date:-1,_id:-1}).limit(amount).toArray();
     }
 }
 

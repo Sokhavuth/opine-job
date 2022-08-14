@@ -7,6 +7,10 @@ import Base from "../base.jsx";
 
 function IndexJsx(props){
     const Page = props.data.pageInner;
+    //const items = props.data.setting.items;
+    
+    
+    
     return(
         <section class="Index">
             <link rel="stylesheet" href="/css/users/index.css" />

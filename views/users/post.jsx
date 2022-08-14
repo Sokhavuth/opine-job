@@ -26,11 +26,12 @@ function PostJsx(props){
                         <option>PHP</option>
                         <option>Video</option>
                     </select>
-                    <input type="text" name="thumb" value="${item.thumb}" required 
-                    placeholder="Thumbnail" />
+                    <input type="text" name="location" value="${item.location}" required placeholder="Location" />
+                    <input type="text" name="payable" value="${item.payable}" required placeholder="Payable" />
                     <input type="datetime-local" value="${item.date}" name="datetime" required />
                     <input type="submit" value="Publish" />
                 </div>
+                <input type="text" name="thumb" required placeholder="Thumb" />
             </form>
         `
     }else{
@@ -47,10 +48,12 @@ function PostJsx(props){
                         <option>PHP</option>
                         <option>Video</option>
                     </select>
-                    <input type="text" name="thumb" required placeholder="Thumbnail" />
+                    <input type="text" name="location" required placeholder="Location" />
+                    <input type="text" name="payable" required placeholder="Payable" />
                     <input type="datetime-local" name="datetime" required />
                     <input type="submit" value="Publish" />
                 </div>
+                <input type="text" name="thumb" required placeholder="Thumb" />
             </form>
         `
     }
