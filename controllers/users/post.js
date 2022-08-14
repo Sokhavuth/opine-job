@@ -1,6 +1,7 @@
 // controllers/users/post.js
 
 import post from "../../views/users/post.jsx";
+import postdb from "../../models/post.ts";
 
 
 class Post{
@@ -12,6 +13,14 @@ class Post{
 
         const html = await post(config);
         res.send(html);
+    }
+
+    async createPost(req, res){
+        if((await req.mysession.get("user")).role in {'Admin':1,'Editor':1,'Author':1}){
+            await postdb.createPost(req);
+        }
+
+        res.redirect("/users/post");
     }
 }
 

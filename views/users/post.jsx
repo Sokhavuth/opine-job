@@ -11,7 +11,7 @@ function PostJsx(props){
 
     if(item){
         editor = `
-            <form action="/admin/post/edit/${item.id}" name="form" method="post" 
+            <form action="/users/post/edit/${item.id}" name="form" method="post" 
                 onSubmit="submitForm(event)">
                 <input type="text" name="title" value="${item.title}" required 
                 placeholder="Post title" />
@@ -21,10 +21,10 @@ function PostJsx(props){
                 <div class="wrapper"> 
                     <select id="category" onChange="getCategory()">
                         <option>Select a category</option>
-                        <option>News</option>
-                        <option>Movie</option>
-                        <option>Entertainment</option>
-                        <option>Sport</option>
+                        <option>ES6</option>
+                        <option>Python</option>
+                        <option>PHP</option>
+                        <option>Video</option>
                     </select>
                     <input type="text" name="thumb" value="${item.thumb}" required 
                     placeholder="Thumbnail" />
@@ -35,7 +35,7 @@ function PostJsx(props){
         `
     }else{
         editor = `
-            <form action="/admin/post" name="form" method="post" onSubmit="submitForm(event)">
+            <form action="/users/post" name="form" method="post" onSubmit="submitForm(event)">
                 <input type="text" name="title" required placeholder="Post title" />
                 <textarea id="editor" name="content"></textarea>
                 <input type="text" name="categories" required placeholder="Categories" />

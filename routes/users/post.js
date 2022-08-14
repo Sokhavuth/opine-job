@@ -13,5 +13,13 @@ router.get("/", async (req, res) => {
     }
 });
 
+router.post("/", async (req, res) => {
+    if(await req.mysession.get("user")){
+        post.createPost(req, res);
+    }else{
+        res.redirect("/users");
+    }
+})
+
 
 export default router;
