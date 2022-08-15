@@ -7,9 +7,23 @@ import Base from "../base.jsx";
 
 function IndexJsx(props){
     const Page = props.data.pageInner;
-    //const items = props.data.setting.items;
+    const items = props.data.items;
     
-    
+    const listItems = items.map((item) =>
+    <li>
+      <a class="thumb" href={`/post/${item.id}`}>
+        <img src={item.thumb} />
+      </a>
+      <div class="title">
+        <a href={`/${props.data.type}/${item.id}`}>{item.title}</a>
+        <div>{(new Date(item.closedate)).toLocaleDateString('it-IT')}</div>
+      </div>
+      <div class="edit">
+        <a href={`/users/${props.data.type}/edit/${item.id}`}><img src={`/images/edit.png`} /></a>
+        <a href={`/users/${props.data.type}/delete/${item.id}`}><img src={`/images/delete.png`} /></a>
+      </div>
+    </li>
+    )
     
     return(
         <section class="Index">
@@ -56,7 +70,7 @@ function IndexJsx(props){
             <div class="footer region">
                 <div class="info">Total amount of items: {props.data.count}</div>
                 <ul class="list">
-                    
+                    { listItems }
                 </ul>
                 <div class="pagination" dangerouslySetInnerHTML={{__html: `
                     <img onclick="paginate('${props.data.route}')" src="/images/load-more.png" />

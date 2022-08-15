@@ -10,6 +10,8 @@ class Post{
         config.page_title = "Post Page";
         config.route = "/users/post";
         config.username = (await req.mysession.get("user")).title;
+        config.type = "post";
+        config.count = await postdb.count(req);
         config.items = await postdb.getPosts(req, config.dasPostAmount);
         
         const html = await post(config);
