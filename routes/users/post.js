@@ -35,7 +35,7 @@ router.post("/edit/:id", async (req, res) => {
     }else{
         res.redirect("/users");
     }
-})
+});
 
 
 export default router;

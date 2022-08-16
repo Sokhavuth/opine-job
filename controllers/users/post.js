@@ -41,7 +41,11 @@ class Post{
     }
 
     async updatePost(req, res){
-        if((await req.mysession.get("user")).role in {'Admin':1,'Editor':1,'Author':1}){
+        const user_role = (await req.mysession.get("user")).role;
+        const userid = (await req.mysession.get("user")).id;
+        const post_userid = (await postdb.editPost(req)).userid;
+
+        if((user_role === "Admin")||(userid === post_userid)){
             await postdb.updatePost(req);
         }
 
