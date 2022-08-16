@@ -28,10 +28,10 @@ function PostJsx(props){
                     </select>
                     <input type="text" name="location" value="${item.location}" required placeholder="Location" />
                     <input type="text" name="payable" value="${item.payable}" required placeholder="Payable" />
-                    <input type="datetime-local" value="${item.date}" name="datetime" required />
+                    <input type="datetime-local" value="${(new Date(item.closedate)).toLocaleString("it-IT")}" name="datetime" required />
                     <input type="submit" value="Publish" />
                 </div>
-                <input type="text" name="thumb" required placeholder="Thumb" />
+                <input type="text" name="thumb" value="${item.thumb}" required placeholder="Thumb" />
             </form>
         `
     }else{

@@ -25,6 +25,20 @@ class Post{
 
         res.redirect("/users/post");
     }
+
+    async editPost(req, res){
+        const config = req.mysetting();
+        config.page_title = "Post Page";
+        config.route = "/users/post";
+        config.username = (await req.mysession.get("user")).title;
+        config.type = "post";
+        config.count = await postdb.count(req);
+        config.items = await postdb.getPosts(req, config.dasPostAmount);
+        config.item = await postdb.editPost(req);
+        
+        const html = await post(config);
+        res.send(html);
+    }
 }
 
 

@@ -53,6 +53,11 @@ class Post{
         const posts = req.mydb.collection<PostSchema>("posts");
         return await posts.find(query).sort({date:-1,_id:-1}).limit(amount).toArray();
     }
+
+    async editPost(req){
+        const posts = req.mydb.collection<PostSchema>("posts");
+        return await posts.findOne({id: req.params.id});
+    }
 }
 
 export default new Post();

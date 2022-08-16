@@ -19,6 +19,14 @@ router.post("/", async (req, res) => {
     }else{
         res.redirect("/users");
     }
+});
+
+router.get("/edit/:id", async (req, res) => {
+    if(await req.mysession.get("user")){
+        post.editPost(req, res);
+    }else{
+        res.redirect("/users");
+    }
 })
 
 
