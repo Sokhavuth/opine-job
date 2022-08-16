@@ -58,6 +58,29 @@ class Post{
         const posts = req.mydb.collection<PostSchema>("posts");
         return await posts.findOne({id: req.params.id});
     }
+
+    async updatePost(req){
+        let categories: string[];
+
+        if(req.body.categories.includes(',')){
+            categories = req.body.categories.split(',');
+        }else{
+            categories = [req.body.categories]
+        }
+        
+        const edited_post = {$set:{
+            title: req.body.title,
+            content: req.body.content,
+            categories: categories,
+            location: req.body.location,
+            payable: req.body.payable,
+            closedate: req.body.datetime,
+            thumb: req.body.thumb,
+        }}
+
+        const posts = req.mydb.collection<PostSchema>("posts");
+        await posts.updateOne({id: req.params.id}, edited_post);
+    }
 }
 
 export default new Post();

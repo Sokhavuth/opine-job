@@ -39,6 +39,14 @@ class Post{
         const html = await post(config);
         res.send(html);
     }
+
+    async updatePost(req, res){
+        if((await req.mysession.get("user")).role in {'Admin':1,'Editor':1,'Author':1}){
+            await postdb.updatePost(req);
+        }
+
+        res.redirect("/users/post");
+    }
 }
 
 
